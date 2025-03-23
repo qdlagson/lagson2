@@ -1,0 +1,347 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>青岛拉格森生物科技</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* 基础重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', 'Microsoft YaHei', sans-serif;
+        }
+
+        body {
+            line-height: 1.5;
+        }
+
+        /* 导航栏 - 移动端优化 */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 60px;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        .brand-section {
+            display: flex;
+            align-items: center;
+        }
+        .logo {
+            height: 35px;
+            margin-right: 10px;
+        }
+        .brand-text h1 {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.2;
+        }
+        .brand-text p {
+            display: none;
+            font-size: 10px;
+            color: #666;
+        }
+
+        /* 汉堡菜单 */
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #666;
+            margin-left: auto;
+            cursor: pointer;
+        }
+
+        /* 导航菜单 - 移动端版式 */
+        .nav-menu {
+            display: none;
+            position: fixed;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            background: #fff;
+            padding: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .nav-menu.active {
+            display: block;
+        }
+        .nav-menu a {
+            display: block;
+            padding: 12px;
+            color: #666;
+            text-decoration: none;
+            border-bottom: 1px solid #eee;
+        }
+        .nav-menu a.active {
+            color: #007bff;
+            font-weight: bold;
+        }
+        .nav-menu a:hover {
+            color: #007bff;
+            background: #f8f9fa;
+        }
+
+        /* 联系入口 - 移动端隐藏 */
+        .contact-section {
+            display: none;
+        }
+
+        /* 产品内容 */
+        .product-main {
+            margin-top: 60px;
+            padding: 20px 15px;
+        }
+        .category-section {
+            margin-bottom: 40px;
+        }
+        .category-title {
+            font-size: 1.4rem;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #007bff;
+            margin-bottom: 20px;
+        }
+        .subtitle {
+            font-size: 1rem;
+            color: #666;
+            margin: -15px 0 20px;
+        }
+        .product-grid {
+            display: block;
+        }
+        .product-card {
+            margin-bottom: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+        /* 修改图片容器 */
+        .product-image {
+            position: relative;
+            width: 100%;
+            padding-top: 75%; /* 4:3比例 */
+            background: #f5f7fa;
+        }
+        .product-image img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* 改为contain完整显示 */
+            padding: 15px;
+        }
+        .product-detail {
+            padding: 15px;
+        }
+        .product-name {
+            color: #007bff;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        .product-specs {
+            color: #666;
+            line-height: 1.6;
+            padding-left: 1em;
+            list-style: none;
+        }
+        .product-specs li::before {
+            content: "•";
+            color: #007bff;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        /* 桌面版样式 */
+        @media (min-width: 768px) {
+            .brand-text p {
+                display: block;
+                font-size: 12px;
+            }
+            .hamburger {
+                display: none;
+            }
+            .nav-menu {
+                display: flex;
+                position: static;
+                background: none;
+                box-shadow: none;
+                width: auto;
+                gap: 20px;
+            }
+            .nav-menu a {
+                border: none;
+                padding: 0;
+            }
+            .contact-section {
+                display: flex;
+                gap: 15px;
+            }
+            .product-main {
+                padding: 40px 5%;
+            }
+            .product-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 30px;
+            }
+            .category-title {
+                font-size: 1.8rem;
+            }
+            .product-image {
+                padding-top: 60%; /* 调整图片比例 */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="brand-section">
+            <img src="images/logo.jpg" alt="公司logo" class="logo">
+            <div class="brand-text">
+                <h1>青岛拉格森生物科技有限公司</h1>
+                <p>Qingdao Lagson Biotech Co.,Ltd</p>
+            </div>
+        </div>
+
+        <!-- 汉堡菜单按钮 -->
+        <button class="hamburger">☰</button>
+
+        <!-- 导航菜单 -->
+        <div class="nav-menu">
+            <a href="index.html">首页 Home</a>
+            <a href="about.html">关于我们 About</a>
+            <a href="products.html" class="active">产品中心 Products</a>
+            <a href="contact.html">联系我们 Contact</a>
+        </div>
+
+        <!-- 桌面版联系入口 -->
+        <div class="contact-section">
+            <div class="online-consult">
+                <i class="fas fa-comments"></i>
+                <span>在线咨询</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 产品内容 -->
+    <main class="product-main">
+        <!-- 色素产品 -->
+        <section class="category-section">
+            <h2 class="category-title">色素系列（OLEORESINS）</h2>
+            <div class="product-grid">
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="images/oleo.jpg" alt="辣椒红色素">
+                    </div>
+                    <div class="product-detail">
+                        <h3 class="product-name">辣椒红色素/叶黄素</h3>
+                        <ul class="product-specs">
+                            <li>原料：天然红辣椒</li>
+                            <li>色价：10,000-20,000 CU</li>
+                            <li>认证：ISO22000, HALAL</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 辣椒制品 -->
+        <section class="category-section">
+            <h2 class="category-title">辣椒系列（CHILLI）</h2>
+            <h3 class="subtitle">辣椒干、辣椒粉、辣椒碎、辣椒籽、辣椒圈、辣椒丝等</h3>
+            <div class="product-grid">
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="images/chilli1.jpg" alt="辣椒粉">
+                    </div>
+                    <div class="product-detail">
+                        <h3 class="product-name">辣椒粉</h3>
+                        <ul class="product-specs">
+                            <li>规格：20-120目可选</li>
+                            <li>辣度：5,000-80,000 SHU</li>
+                            <li>包装：25kg/袋或定制</li>
+                        </ul>
+                    </div>
+                </article>
+                
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="images/chilli5.jpg" alt="辣椒干">
+                    </div>
+                    <div class="product-detail">
+                        <h3 class="product-name">辣椒干</h3>
+                        <ul class="product-specs">
+                            <li>品种：益都红、朝天椒等</li>
+                            <li>含水率：≤16%</li>
+                            <li>保质期：24个月</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="category-section">
+            <h2 class="category-title">甜椒系列（PAPRIKA）</h2>
+            <h3 class="subtitle">甜椒干、甜椒粉、甜椒籽等</h3>
+            <div class="product-grid">
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="images/paprika.jpg" alt="甜椒">
+                    </div>
+                    <div class="product-detail">
+                        <h3 class="product-name">甜椒干</h3>
+                        <ul class="product-specs">
+                            <li>包装：定制</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="category-section">
+            <h2 class="category-title">玫瑰茄（HIBISCUS）</h2>
+            <div class="product-grid">
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="images/hibiscus.jpg" alt="玫瑰茄">
+                    </div>
+                    <div class="product-detail">
+                        <h3 class="product-name">玫瑰茄（HIBISCUS）</h3>
+                        <ul class="product-specs">
+                            <li>包装：定制</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // 汉堡菜单交互
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+
+        // 点击菜单项关闭菜单
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-menu').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

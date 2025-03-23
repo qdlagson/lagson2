@@ -1,0 +1,308 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>青岛拉格森生物科技</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* 基础重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', 'Microsoft YaHei', sans-serif;
+        }
+
+        body {
+            line-height: 1.5;
+        }
+
+        /* 导航栏 - 移动端优化 */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 60px;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        .brand-section {
+            display: flex;
+            align-items: center;
+        }
+        .logo {
+            height: 35px;
+            margin-right: 10px;
+        }
+        .brand-text h1 {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.2;
+        }
+        .brand-text p {
+            display: none; /* 移动端隐藏英文 */
+            font-size: 10px;
+            color: #666;
+        }
+
+        /* 汉堡菜单 */
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #666;
+            margin-left: auto;
+            cursor: pointer;
+        }
+
+        /* 导航菜单 - 移动端版式 */
+        .nav-menu {
+            display: none;
+            position: fixed;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            background: #fff;
+            padding: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .nav-menu.active {
+            display: block;
+        }
+        .nav-menu a {
+            display: block;
+            padding: 12px;
+            color: #666;
+            text-decoration: none;
+            border-bottom: 1px solid #eee;
+        }
+        .nav-menu a.active {
+            color: #007bff;
+            font-weight: bold;
+        }
+        .nav-menu a:hover {
+            color: #007bff;
+            background: #f8f9fa;
+        }
+
+        /* 联系入口 - 移动端隐藏 */
+        .contact-section {
+            display: none;
+        }
+
+        /* 主内容 */
+        .contact-main {
+            margin-top: 60px;
+            padding: 30px 15px;
+        }
+        .contact-grid {
+            display: block; /* 移动端单列布局 */
+        }
+        .contact-info {
+            padding: 0;
+            border: none;
+        }
+        .section-title {
+            font-size: 1.5rem;
+            padding-bottom: 10px;
+        }
+        .section-title::after {
+            width: 40px;
+            height: 2px;
+        }
+        .address-box {
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .contact-detail {
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .business-hours {
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        /* 联系表单 */
+        .contact-form {
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .form-control {
+            padding: 10px;
+        }
+
+        /* 地图容器 */
+        .map-container {
+            height: 300px;
+            margin-top: 30px;
+        }
+
+        /* 桌面版样式 */
+        @media (min-width: 768px) {
+            .brand-text p {
+                display: block;
+                font-size: 12px;
+            }
+            .hamburger {
+                display: none;
+            }
+            .nav-menu {
+                display: flex;
+                position: static;
+                background: none;
+                box-shadow: none;
+                width: auto;
+                gap: 20px;
+            }
+            .nav-menu a {
+                border: none;
+                padding: 0;
+            }
+            .contact-section {
+                display: flex;
+                gap: 15px;
+            }
+            .contact-main {
+                padding: 60px 5%;
+            }
+            .contact-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+            }
+            .contact-info {
+                padding-right: 40px;
+                border-right: 2px solid #f0f0f0;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .map-container {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="brand-section">
+            <img src="images/logo.jpg" alt="公司logo" class="logo">
+            <div class="brand-text">
+                <h1>青岛拉格森生物科技有限公司</h1>
+                <p>Qingdao Lagson Biotech Co.,Ltd</p>
+            </div>
+        </div>
+
+        <!-- 汉堡菜单按钮 -->
+        <button class="hamburger">☰</button>
+
+        <!-- 导航菜单 -->
+        <div class="nav-menu">
+            <a href="index.html">首页 Home</a>
+            <a href="about.html">关于我们 About</a>
+            <a href="products.html">产品中心 Products</a>
+            <a href="contact.html" class="active">联系我们 Contact</a>
+        </div>
+
+        <!-- 桌面版联系入口 -->
+        <div class="contact-section">
+            <div class="online-consult">
+                <i class="fas fa-comments"></i>
+                <span>在线咨询</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主内容 -->
+    <main class="contact-main">
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h2 class="section-title">联系我们</h2>
+                <div class="address-box">
+                    <div class="contact-detail">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>青岛拉格森生物科技有限公司</h3>
+                            <p>青岛胶州九龙办事处民营工业园</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fas fa-phone"></i>
+                        <p>+86-532-86628080</p>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fas fa-envelope"></i>
+                        <p>trade@lagson.cn</p>
+                    </div>
+                </div>
+
+                <div class="business-hours">
+                    <h4>营业时间</h4>
+                    <p>周一至周五 8:30 - 17:30 (GMT+8)</p>
+                    <p>周末及法定节假日休息</p>
+                </div>
+            </div>
+
+            <!-- 联系表单 -->
+            <form class="contact-form">
+                <div class="form-group">
+                    <label>姓名 *</label>
+                    <input type="text" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>邮箱 *</label>
+                    <input type="email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>联系电话</label>
+                    <input type="tel" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>咨询类型 *</label>
+                    <select class="form-control" required>
+                        <option value="">请选择</option>
+                        <option>产品咨询</option>
+                        <option>技术支持</option>
+                        <option>商务合作</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>留言内容 *</label>
+                    <textarea class="form-control" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">发送消息</button>
+            </form>
+        </div>
+
+        <!-- 地图 -->
+        <div class="map-container">
+            <iframe src="https://map.baidu.com/embed/v1?address=青岛胶州九龙办事处民营工业园&zoom=15&coord=36.2471,120.0012" 
+                    allowfullscreen>
+            </iframe>
+        </div>
+    </main>
+
+    <script>
+        // 汉堡菜单交互
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+
+        // 点击菜单项关闭菜单
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-menu').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

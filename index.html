@@ -1,0 +1,227 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>青岛拉格森生物科技有限公司</title>
+    <!-- 引入字体图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* 基础重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        /* 主内容区 */
+        .main-content {
+            margin-top: 70px; /* 与导航栏高度一致 */
+            padding: 20px;
+        }
+
+        /* 首屏内容 */
+        .hero-section {
+            text-align: center;
+        }
+        .hero-title {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        .divider {
+            width: 40px;
+            height: 2px;
+            background: #007bff;
+            margin: 15px auto;
+        }
+        .hero-text {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .hero-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        /* 导航栏 - 移动端优化 */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 60px;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        /* 品牌标识 */
+        .brand-section {
+            display: flex;
+            align-items: center;
+        }
+        .logo {
+            height: 35px;
+            margin-right: 10px;
+        }
+        .brand-text h1 {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.2;
+        }
+        .brand-text p {
+            display: none; /* 移动端隐藏英文 */
+            font-size: 10px;
+            color: #666;
+        }
+
+        /* 汉堡菜单 */
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #666;
+            margin-left: 15px;
+            cursor: pointer;
+        }
+
+        /* 导航菜单 - 移动端版式 */
+        .nav-menu {
+            display: none;
+            position: fixed;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            background: #fff;
+            padding: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .nav-menu.active {
+            display: block;
+        }
+        .nav-menu a {
+            display: block;
+            padding: 12px;
+            color: #666;
+            text-decoration: none;
+            border-bottom: 1px solid #eee;
+        }
+        .nav-menu a:hover {
+            color: #007bff;
+            background: #f8f9fa;
+        }
+
+        /* 联系信息 - 移动端优化 */
+        .contact-section {
+            display: none; /* 移动端隐藏 */
+            align-items: center;
+            gap: 15px;
+        }
+        .online-consult {
+            background: #007bff;
+            color: white;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        /* 桌面版样式 */
+        @media (min-width: 992px) {
+            .brand-text p {
+                display: block; /* 桌面显示英文 */
+            }
+            .hamburger {
+                display: none;
+            }
+            .nav-menu {
+                display: flex;
+                position: static;
+                gap: 30px;
+                background: none;
+                box-shadow: none;
+                width: auto;
+            }
+            .nav-menu a {
+                border: none;
+                padding: 0;
+            }
+            .contact-section {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="brand-section">
+            <img src="images/logo.jpg" alt="公司logo" class="logo">
+            <div class="brand-text">
+                <h1>青岛拉格森生物科技有限公司</h1>
+                <p>Qingdao Lagson Biotech Co.,Ltd</p>
+            </div>
+        </div>
+
+        <!-- 汉堡菜单按钮 -->
+        <button class="hamburger">☰</button>
+
+        <!-- 导航菜单 -->
+        <div class="nav-menu">
+            <a href="#">首页 Home</a>
+            <a href="#">关于我们 About</a>
+            <a href="#">产品中心 Products</a>
+            <a href="#">联系我们 Contact</a>
+        </div>
+
+        <!-- 桌面版联系信息 -->
+        <div class="contact-section">
+            <div class="online-consult">
+                <i class="fas fa-comments"></i>
+                <span>在线咨询</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主内容 -->
+    <main class="main-content">
+        <section class="hero-section">
+            <h1 class="hero-title">连接全球风味</h1>
+            <div class="divider"></div>
+            <p class="hero-text">
+                拉格森生物科技有限公司以中国优质农产品为核心，构建从田间到全球餐桌的一站式供应链。依托中国本土自建工厂的规模化生产实力，及美国、墨西哥海外办事处的本土化服务网络，我们致力于为北美、欧洲客户提供稳定、高效、可持续的辣椒制品与特色农产品解决方案。
+            </p>
+            <img src="images/chilli2.jpg" alt="辣椒产品" class="hero-image">
+        </section>
+    </main>
+
+    <!-- 简单交互脚本 -->
+    <script>
+        // 汉堡菜单点击事件
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            const menu = document.querySelector('.nav-menu');
+            menu.classList.toggle('active');
+        });
+
+        // 点击菜单项关闭菜单
+        document.querySelectorAll('.nav-menu a').forEach(item => {
+            item.addEventListener('click', () => {
+                document.querySelector('.nav-menu').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
